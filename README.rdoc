@@ -1,5 +1,5 @@
 = Introduction
-This is a fork of the <a href="https://github.com/mbklein/contentdm-ruby">ContentDm module for Ruby</a> provides access to
+This is a fork of the {ContentDm module for Ruby}[github.com/mbklein/contentdm-ruby] provides access to
 structured metadata in CONTENTdm collections via CONTENTdm's built-in OAI-PMH provider interface. The module turns
 Qualified Dublin Core metadata into a convenient hash structure. It also provides access to the raw XML for each record
 returned.
