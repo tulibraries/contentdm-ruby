@@ -95,13 +95,14 @@ module ContentDm #:nodoc:#
       result = []
       qdcs = response.search('//qdc:qualifieddc',{ 'qdc' => 'http://epubs.cclrc.ac.uk/xmlns/qdc/' })
       qdcs.each { |qdc|
+        raw = qdc
         metadata = Hash.new { |h,k| h[k] = [] }
         qdc.children.each { |child|
           if child.element?
             metadata[[child.namespace.prefix,child.name].join('.')] << child.text # unless child.text.empty?
           end
         }
-        result << metadata
+        result << {:metadata => metadata, :raw => raw}
       }
       result
     end

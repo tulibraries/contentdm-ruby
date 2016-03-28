@@ -2,10 +2,11 @@ module ContentDm
   
 class Record
   
-  attr_reader :metadata, :source
+  attr_reader :metadata, :source, :raw
   
   def initialize(data, source)
-    @metadata = data.dup
+    @metadata = data[:metadata].dup
+    @raw = data[:raw]
     @source = source
 
     # Account for bug in single-record output
@@ -79,7 +80,10 @@ class Record
   def to_html(opts = {})
     mapper.to_html(self, opts)
   end
-  
+
+  def raw_xml
+    @raw.to_xml
+  end
 end
 
 end

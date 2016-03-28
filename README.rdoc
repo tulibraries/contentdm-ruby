@@ -1,9 +1,8 @@
 = Introduction
-The ContentDm module for Ruby provides access to structured metadata in CONTENTdm collections
-via CONTENTdm's built-in OAI-PMH provider interface. The module turns Qualified Dublin Core
-metadata into a convenient hash structure. With proper authentication, it can also scrape
-collection-level field information from the CONTENTdm administrative interface and create
-formatted HTML output from retrieved records.
+This is a fork of the <a href="https://github.com/mbklein/contentdm-ruby">ContentDm module for Ruby</a> provides access to
+structured metadata in CONTENTdm collections via CONTENTdm's built-in OAI-PMH provider interface. The module turns
+Qualified Dublin Core metadata into a convenient hash structure. It also provides access to the raw XML for each record
+returned.
 
 = Examples
 
@@ -20,10 +19,9 @@ formatted HTML output from retrieved records.
   # Retrieve all records from collection2
   records = harvester.get_records("collection2")
 
-  # Output XML and HTML markup consistent with the default CONTENTdm settings for the
-  # collection
-  puts record.to_xml()
-  puts record.to_html()
+  # Output raw XML for that record returned in the OAI feed.
+  puts record.raw_xml
+
   
   # Retrieve a record based on its persistent URI using the class method version of #get_record
   record = ContentDm::Harvester.get_record('http://mycontentdm.example.com/u/?/collection1,16')
